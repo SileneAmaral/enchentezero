@@ -4,7 +4,7 @@ import pandas as pd
 
 janela = tk.Tk()
 janela.title('Projeto Enchente Zero® 2024')
-janela. geometry("730x300")
+janela. geometry("730x350")
 
 conexao = sqlite3.connect('dados.db')
 
@@ -58,10 +58,12 @@ def cadastrar_morador():
     entry_telefone.delete(0,"end")
     entry_localizacao.delete(0,"end")
 
-
-
-
-
+def limpar_campos():
+        entry_nome.delete(0, tk.END)
+        entry_endereco.delete(0, tk.END)
+        entry_email.delete(0, tk.END)
+        entry_telefone.delete(0, tk.END)
+        entry_localizacao.delete(0, tk.END)
 
 
 label_nome = tk.Label(janela, text='Nome Completo')
@@ -96,13 +98,16 @@ entry_localizacao = tk.Entry(janela, width =60)
 entry_localizacao.grid(row=4, column=1, padx=10, pady=10)
 
 
-
 botao_cadastrar = tk.Button(text='Cadastrar Morador', command=cadastrar_morador)
 botao_cadastrar.grid(row=5, column=1,columnspan=2, padx=10, pady=10 , ipadx = 80)
 
-
-
-
-
+limpar_botao = tk.Button(text="Limpar Dados", command=limpar_campos)
+limpar_botao.grid(row=6, column=1,columnspan=2, padx=10, pady=10 , ipadx = 80)
 
 janela.mainloop()
+
+
+
+
+
+
